@@ -10,6 +10,9 @@ require("../conexion.php");
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 <script type="text/javascript" src="actualizarpagina.js"></script>
 <script type="text/javascript">
+window.location.href = "prestamo.php";
+</script>
+<script type="text/javascript">
 $(function() {
             $("#curso").autocomplete({
                 source: "autoincrementar.php",
