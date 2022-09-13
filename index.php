@@ -45,7 +45,7 @@ if (!empty($_SESSION['active'])) {
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Iniciar Sesión</title>
-    <link href="assets/css/Styles.css" rel="stylesheet" />
+    <link href="assets/css/Style.css" rel="stylesheet" />
     <script src="assets/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 

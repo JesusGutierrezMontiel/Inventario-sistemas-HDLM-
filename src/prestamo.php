@@ -33,7 +33,6 @@ $(function() {
                 Datos Cliente
             </div>
             <div class="card-body">
-				<form method="post" action="actualizarprestamo.php">
                     <div class="row">
                         <div class="col-lg-4">
                           <div>
@@ -87,7 +86,6 @@ $(function() {
             </div>
             </div>
 <BR>
-	</form>
 	<form method="post" action="eliminar.php">
         <div class="card">
             <div class="card-header bg-primary text-white text-center">
@@ -102,8 +100,12 @@ $(function() {
                         </div>
                     </div>
             </div>
+
+
+            
                      <div class="modal-body">
-			 <table border="1px" cellpadding="5px" width="100%">
+
+			 <table  class="table table-dark table-striped">
 			<thead class="productsHeader">
 				<tr>
 					<th colspan="6">LISTA DE PRODUCTOS</th>

@@ -39,6 +39,9 @@
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bg: #1a1e24;
+  --color: #eee;
+  --font: Montserrat, Roboto, Helvetica, Arial, sans-serif;
 }
 
 *,
@@ -46,6 +49,55 @@
 *::after {
   box-sizing: border-box;
 }
+.wrapper {
+  padding: 0.9rem 0;
+  filter: url('#goo');
+}
+
+.button {
+  display: inline-block;
+  text-align: center;
+  background: var(--color);
+  color: var(--bg);
+  font-weight: bold;
+  padding: 1.18em 1.32em  1.03em;
+  line-height: 1.2;
+  border-radius: 1em;
+  position: relative;
+  min-width: 12.50em;
+  text-decoration: none;
+  font-family: var(--font);
+  font-size: 1.05rem;
+}
+.button:before,
+.button:after {
+    width: 4.4em;
+    height: 2.95em;
+    position: absolute;
+    content: "";
+    display: inline-block;
+    background: var(--color);
+    border-radius: 50%;
+    transition: transform 1s ease;
+    transform: scale(0);
+    z-index: -1;
+}
+
+.button:before {
+    top: -25%;
+    left: 10%;
+}
+
+.button:after {
+    bottom: -15%;
+    right: 10%;
+}
+
+.button:hover:before,
+.button:hover:after {
+    transform: none;
+}
+
 
 html {
   font-family: sans-serif;
@@ -3927,7 +3979,6 @@ input[type=button].btn-block {
 
 .nav-link {
   display: block;
-  padding: 0.5rem 1rem;
 }
 .nav-link:hover, .nav-link:focus {
   text-decoration: none;
@@ -3945,7 +3996,7 @@ input[type=button].btn-block {
   margin-bottom: -1px;
 }
 .nav-tabs .nav-link {
-  border: 1px solid transparent;
+  border: 20px solid transparent;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
@@ -4372,7 +4423,7 @@ input[type=button].btn-block {
   word-wrap: break-word;
   background-color: rgb(255, 255, 255);
   background-clip: border-box;
-  border: 1px solid rgba(168, 116, 38, 0.966);
+  border: 1px solid rgba(31, 30, 36, 0.966);
   border-radius: 0.25rem;
 }
 .card > hr {
@@ -6143,7 +6194,7 @@ a.close.disabled {
   background-size: cover;
 }
 .bg-primary {
-  background-color: #6e5b22 !important;
+  background-color: #2A516E !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -6222,7 +6273,7 @@ button.bg-light:focus {
 }
 /*COLOR PARA  LA BARRA DE ARRIBA EN LA PAGINA PRINCIPAL (HEADER)*/
 .bg-dark {
-  background-color: #65707A !important;
+  background-color: #2A516E !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
@@ -10161,7 +10212,7 @@ body {
   z-index: 1039;
 }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav {
-  width: 225px;
+  width: 220px;
   height: 100vh;
   z-index: 1038;
 }
@@ -10504,4 +10555,44 @@ input:checked[type="checkbox"]:before{
 	.formulario__btn {
 		width: 100%;
 	}
+  
+  .middle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .btn{
+    position: relative;
+    display: block;
+    color: white;
+    font-size: 14px;
+    font-family: "montserrat";
+    text-decoration: none;
+    margin: 30px 0;
+    border: 2px solid #ff7675;
+    padding: 14px 60px;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 1s all ease;
+  }
+  .btn::before{
+    background: #ff7675;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+    transition: all 0.6s ease;
+  }
+  .btn3::before{
+    width: 100%;
+    height: 0%;
+    transform: translate(-50%,-50%) rotate(45deg);
+  }
+  .btn3:hover::before{
+    height: 380%;
+  }
+
 }

@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $(".confirmardañado").submit(function (e) {
         e.preventDefault();
         Swal.fire({
-            title: '¿Estás seguro de que se Dañp?',
+            title: '¿Estás seguro de que se Daño?',
             icon: 'Peligro',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
