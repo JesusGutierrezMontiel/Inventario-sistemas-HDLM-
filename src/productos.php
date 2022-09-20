@@ -10,10 +10,11 @@ include "../conexion.php";
         $serie = $_POST['serie'];
         $precio = $_POST['precio'];
         $id_tipo = $_POST['id_tipo'];
+        $id_proveedor = $_POST['id_proveedor'];
         $usuario = $_SESSION['idUser'];
         
         $alert = "";
-        if ( empty($descripcionproducto) || empty($cantidad) || empty($id_marca) || empty($modelo) || empty($serie) || empty($id_tipo) ) {
+        if ( empty($descripcionproducto) || empty($cantidad) || empty($id_marca) || empty($modelo) || empty($serie) || empty($id_tipo) || empty($id_proveedor) ) {
             $alert = '<div class="alert alert-danger" role="alert">
                 Todo los campos son obligatorios
               </div>';
@@ -25,8 +26,8 @@ include "../conexion.php";
                         La serie ya existe
                     </div>';
             } else {
-				$query_insert = mysqli_query($conexion,  "INSERT INTO cat_producto(descripcionproducto,cantidad,id_marca,modelo,serie,precio,id_usuarioalta,id_usuariobaja,id_tipo,fh_alta,fh_baja)
-                values((UPPER('$descripcionproducto')),'$cantidad','$id_marca',(UPPER('$modelo')),'$serie','$precio','$usuario ',NULL,'$id_tipo',SYSDATE(),NULL)");
+				$query_insert = mysqli_query($conexion,  "INSERT INTO cat_producto(descripcionproducto,cantidad,id_marca,modelo,serie,precio,id_usuarioalta,id_usuariobaja,id_tipo,fh_alta,fh_baja,id_proveedor)
+                values((UPPER('$descripcionproducto')),'$cantidad','$id_marca',(UPPER('$modelo')),'$serie','$precio','$usuario ',NULL,'$id_tipo',SYSDATE(),NULL,'$id_proveedor')");
                 if ($query_insert) {
                     $alert = '<div class="alert alert-success" role="alert"> 
                 Producto Registrado
@@ -206,6 +207,23 @@ include "../conexion.php";
           $query = $conexion -> query ("SELECT * FROM cat_tipo_producto");
           while ($valores = mysqli_fetch_array($query)) {
             echo '<option value="'.$valores[id_tipo].'">'.$valores[descripciontipo].'</option>';
+          }
+        ?>
+      </select>   
+      </div>        
+    
+
+            <!-- Grupo: PROVEEDOR -->
+      
+ 
+            <div class="form-group">
+                         <label for="serie">Proveedor</label>
+<select name="id_proveedor" id="id_proveedor" class="form-control"required>
+                     <option value="0" >Proveedor:</option>
+        <?php
+          $query = $conexion -> query ("SELECT * FROM cat_proveedor");
+          while ($valores = mysqli_fetch_array($query)) {
+            echo '<option value="'.$valores[id_proveedor].'">'.$valores[razon_social].'</option>';
           }
         ?>
       </select>   
