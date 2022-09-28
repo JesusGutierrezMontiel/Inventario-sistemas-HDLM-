@@ -8,10 +8,6 @@ require("../conexion.php");
 <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 <script type="text/javascript" src="js/functions.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
-<script type="text/javascript" src="actualizarpagina.js"></script>
-<script type="text/javascript">
-window.location.href = "prestamo.php";
-</script>
 <script type="text/javascript">
 $(function() {
             $("#curso").autocomplete({
@@ -25,6 +21,11 @@ $(function() {
 					$('#ApellidoP').val(ui.item.ApellidoP);
                     $('#ApellidoM').val(ui.item.ApellidoM);
 
+					$("#curso").focus();
+			     }
+            });
+		});
+</script>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -103,7 +104,7 @@ $(function() {
                     </div>
             </div>
                      <div class="modal-body">
-			 <table  class="table table-dark table-hover">
+			 <table border="1px" cellpadding="5px" width="100%">
 			<thead class="productsHeader">
 				<tr>
 					<th colspan="6">LISTA DE PRODUCTOS</th>
@@ -137,8 +138,14 @@ $(function() {
 			 </div>
 				</form>
 				<br>
-				<form method="post" action="../pdf.php" target="_blank">
-				<button  type="submit" value="Guardar Pedido" target="_blank">Guardar pedido</button><br>
+			    <form method="post" action="../pdf.php" target="_blank">
+				<button onclick="miFunc()" type="submit" value="Guardar Pedido" target="_blank">Guardar pedido</button><br>
 				</form>
 		</div>
 			<?php include_once "includes/footer.php"; ?>
+		<script>
+  function miFunc() {
+   window.location.href = "prestamo.php";
+  }
+</script>
+		

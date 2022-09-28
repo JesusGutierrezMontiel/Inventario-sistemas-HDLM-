@@ -76,7 +76,7 @@ if (!empty($_POST)) {
                     <tr>
 
                         <td><?php echo $data['id_usuario']; ?></td>
-                        <td><?php echo $data['nombre']; ?></td>
+                        <td><?php echo $data['nombre'];?> &nbsp;  <?php echo $data['apellidoP']; ?></td>
                         <td><?php echo $data['correo']; ?></td>
                         <td><?php echo $data['usuario']; ?></td>
                         <td><?php echo $estado; ?></td>

@@ -165,7 +165,7 @@ if ($result_sql == 0) {
       
 <BR></BR>
 <lingth><button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Actualizar Usuario</button>
-                        <a href="clientes.php" class="btn btn-danger">Atras</a></lingth>
+                        <a href="usuarios.php" class="btn btn-danger">Atras</a></lingth>
 </div>
 </form>
 <script src="validacion/formulariousuarios.js"></script>

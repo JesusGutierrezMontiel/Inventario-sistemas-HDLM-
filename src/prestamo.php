@@ -8,7 +8,6 @@ require("../conexion.php");
 <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 <script type="text/javascript" src="js/functions.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
-<script type="text/javascript" src="actualizarpagina.js"></script>
 <script type="text/javascript">
 $(function() {
             $("#curso").autocomplete({
@@ -33,6 +32,7 @@ $(function() {
                 Datos Cliente
             </div>
             <div class="card-body">
+				<form method="post" action="actualizarprestamo.php">
                     <div class="row">
                         <div class="col-lg-4">
                           <div>
@@ -68,7 +68,7 @@ $(function() {
 <div class="formulario__grupo-input">
                      <option value="">Producto:</option>
         <?php
-        $query = $conexion -> query ("SELECT * FROM cat_producto");
+        $query = $conexion -> query ("SELECT *FROM cat_producto  order by descripcionproducto ASC");
           while ($valores = mysqli_fetch_array($query)) {
             if ($valores['cantidad']>0){
 				echo '<option value="'.$valores[id_producto].'">'.$valores[descripcionproducto]. '</option>';  
@@ -86,6 +86,7 @@ $(function() {
             </div>
             </div>
 <BR>
+	</form>
 	<form method="post" action="eliminar.php">
         <div class="card">
             <div class="card-header bg-primary text-white text-center">
@@ -100,12 +101,8 @@ $(function() {
                         </div>
                     </div>
             </div>
-
-
-            
                      <div class="modal-body">
-
-			 <table  class="table table-dark table-striped">
+			 <table border="1px" cellpadding="5px" width="100%">
 			<thead class="productsHeader">
 				<tr>
 					<th colspan="6">LISTA DE PRODUCTOS</th>
@@ -136,8 +133,14 @@ $(function() {
 			 </div>
 				</form>
 				<br>
-				<form method="post" action="../pdf.php" target="_blank">
-				<button onClick="location.href = location.href" type="submit" value="Guardar Pedido" target="_blank">Guardar pedido</button><br>
+			<form method="post" action="../pdf.php" target="_blank">
+				<button onclick="miFunc()" type="submit" value="Guardar Pedido" target="_blank">Guardar pedido</button><br>
 				</form>
 		</div>
 			<?php include_once "includes/footer.php"; ?>
+		<script>
+  function miFunc() {
+   window.location.href = "prestamo.php";
+  }
+</script>
+		
