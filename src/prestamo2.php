@@ -37,7 +37,7 @@ $(function() {
                     <div class="row">
                         <div class="col-lg-4">
                           <div>
-                            <label>Nombre</label>
+                            <label for="id_prod" class="formulario__label">Nombre:</label>
 								<!-- Lista de clientes -->
                             <?php
 							 $query = $conexion -> query ("SELECT distinct p.nombre, p.apellidoP, p.apellidoM, d.id_cliente from cat_cliente p join detalle_temporal_pres d ON (p.id_cliente = d.id_cliente)")
@@ -51,7 +51,7 @@ $(function() {
 								?>
                             
                             <!-- Grupo: Salon -->
-<label>Salon</label>
+<label for="id_prod" class="formulario__label">Salon:</label>
 <?php
 							$query = $conexion -> query ("SELECT distinct s.descripcion, d.id_salon from cat_salon s join detalle_temporal_pres d ON (s.id_salon = d.id_salon)")
                                                   or die( mysqli_error($conexion));
@@ -143,9 +143,9 @@ $(function() {
 				</form>
 		</div>
 			<?php include_once "includes/footer.php"; ?>
-		<script>
+	<script>
   function miFunc() {
-   window.location.href = "prestamo.php";
+	  setInterval("location.reload('prestamo.php')",1000);
   }
 </script>
 		

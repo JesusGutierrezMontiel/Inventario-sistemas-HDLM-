@@ -91,8 +91,10 @@ if (!empty($_POST)) {
 <!-- nos direcciona al boton verde de modificar cliente -->
                             <?php if ($data['estatus'] == 1) { ?>
                                 <a href="editar_cliente.php?id=<?php echo $data['id_cliente']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
+                                
                                 <form action="eliminar_cliente.php?id=<?php echo $data['id_cliente']; ?>" method="post" class="confirmar d-inline">
-                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                                  
+                                <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
                                 </form>
                             <?php } ?>
                         </td>

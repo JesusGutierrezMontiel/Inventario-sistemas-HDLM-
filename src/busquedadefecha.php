@@ -5,7 +5,7 @@
       $date1 = date("Y-m-d", strtotime($_POST['date1']));
       $date2 = date("Y-m-d", strtotime($_POST['date2']));
       
-      $query=mysqli_query($conexion, "SELECT a.id_prestamo CONCAT(c.nombre, ' ', c.apellidoP)as nombre_cliente,
+      $query=mysqli_query($conexion, "SELECT a.id_prestamo, CONCAT(c.nombre, ' ', c.apellidoP)as nombre_cliente,
       d.descripcion,
        (SELECT descripcionproducto from cat_producto where id_producto  = b.id_producto) as Producto,	
        (SELECT id_producto from cat_producto where id_producto  = b.id_producto) ,
@@ -17,7 +17,7 @@
           cat_cliente c, 
           cat_salon d,
           cat_producto e
-     WHERE a.id_prestamo = b.id_prestamo 
+     WHERE a.id_prestamo = b.id_prestamo
       AND a.id_cliente = c.id_cliente
       AND a.id_salon = d.id_salon
       AND b.id_producto = e.id_producto

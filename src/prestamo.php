@@ -37,25 +37,28 @@ $(function() {
                         <div class="col-lg-4">
                           <div>
                             <input type="hidden" id="id_cliente" value="1" name="id_cliente" required>
-                            <label>Nombre</label>
+                            <label for="cliente" class="formulario__label">CLIENTE:</label>
 								<!-- Lista de clientes -->
-                            <select style="width: 200px" name="id_cliente" id="id_cliente" class="formulario__input" required>
+                            <select style="width: 150px" name="id_cliente" id="id_cliente" class="formulario__input" required>
 <div class="formulario__grupo-input">
                      <option value="">Cliente:</option>
         <?php
-        $query = $conexion -> query ("SELECT * FROM cat_cliente");
+        $query = $conexion -> query ("  SELECT  *FROM cat_cliente order by nombre ASC;");
           while ($valores = mysqli_fetch_array($query)) {
             echo '<option value="'.$valores[id_cliente].'">'.$valores[nombre]." ".$valores[apellidoP]." ".$valores[apellidoM]. '</option>';
           }
         ?>
       </select> 
+
+
+      
                          <!-- Grupo: Salon -->
-<label>Salon</label>
+    <label for="producto" class="formulario__label">SALON:</label>
 <select style="width: 200px" name="id_salon" id="id_salon" class="formulario__input" required>
 <div class="formulario__grupo-input">
                      <option value="">Salon:</option>
         <?php
-        $query = $conexion -> query ("SELECT * FROM cat_salon");
+        $query = $conexion -> query ("SELECT * FROM cat_salon order by descripcion ASC");
           while ($valores = mysqli_fetch_array($query)) {
             echo '<option value="'.$valores[id_salon].'">'.$valores[descripcion]. '</option>';
           }
@@ -63,12 +66,12 @@ $(function() {
         ?>
       </select> 
 	 <!-- Lista de productos -->
-<label for="id_prod" class="formulario__label">Producto</label>
+<label for="id_prod" class="formulario__label">PRODUCTO:</label>
 <select style="width: 200px" name="id_prod" id="id_prod" class="formulario__input" required> 
 <div class="formulario__grupo-input">
                      <option value="">Producto:</option>
         <?php
-        $query = $conexion -> query ("SELECT *FROM cat_producto  order by descripcionproducto ASC");
+        $query = $conexion -> query ("SELECT  *FROM cat_producto order by descripcionproducto ASC");
           while ($valores = mysqli_fetch_array($query)) {
             if ($valores['cantidad']>0){
 				echo '<option value="'.$valores[id_producto].'">'.$valores[descripcionproducto]. '</option>';  
@@ -140,7 +143,7 @@ $(function() {
 			<?php include_once "includes/footer.php"; ?>
 		<script>
   function miFunc() {
-   window.location.href = "prestamo.php";
+	  setInterval("location.reload('prestamo.php')",1000);
   }
 </script>
 		

@@ -8,8 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: '!SI, Eliminar!',
-            confirmButtonText: '!Cancelar!'
+            confirmButtonText: '!SI, Eliminar!'
         }).then((result) => {
             if (result.isConfirmed) {
                 this.submit();

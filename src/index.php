@@ -6,10 +6,10 @@ $clientes = mysqli_query($conexion, "SELECT * FROM cat_cliente");
 $totalC = mysqli_num_rows($clientes);
 $productos = mysqli_query($conexion, "SELECT * FROM cat_producto");
 $totalP = mysqli_num_rows($productos);
-$salon = mysqli_query($conexion, "SELECT * FROM cat_salon");
-$totalS = mysqli_num_rows($salon);
-$ventas = mysqli_query($conexion, "SELECT * FROM log_prestamo_cab");
-$totalV = mysqli_num_rows($ventas);
+$proveedor = mysqli_query($conexion, "SELECT * FROM cat_proveedor");
+$totalS = mysqli_num_rows($proveedor);
+$prestamo = mysqli_query($conexion, "SELECT * FROM log_prestamo_det");
+$totalV = mysqli_num_rows($prestamo);
 
 ?>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -83,12 +83,12 @@ $totalV = mysqli_num_rows($ventas);
 
 
         <!-- Ejemplo de tarjeta de ganancias (mensuales)¡' -->
-        <a class="col-xl-3 col-md-6 mb-4" href="salon.php">
+        <a class="col-xl-3 col-md-6 mb-4" href="proveedor.php">
             <div class="card border-left-success shadow h-100 py-2 bg-salon">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">Salones</div>
+                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">Proveedores</div>
                             <div class="h5 mb-0 font-weight-bold text-white"><?php echo $totalS; ?></div>
                         </div>
                         <div class="col-auto">
@@ -99,7 +99,7 @@ $totalV = mysqli_num_rows($ventas);
             </div>
         </a>
 <!--Ejemplo de tarjeta de solicitudes pendientes  -->
-<a class="col-xl-3 col-md-6 mb-4" href="prestamo.php">
+<a class="col-xl-3 col-md-6 mb-4" href="Consultas.php">
             <div class="card border-left-warning bg-danger shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">

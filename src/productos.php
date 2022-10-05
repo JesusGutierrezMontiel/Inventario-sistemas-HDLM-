@@ -148,7 +148,7 @@ include "../conexion.php";
 <br>
                      <!-- Grupo: Marca -->
                      <div class="form-group">
-                         <label for="marca">Marca</label>  
+                         <label for="marca" class="formulario__label">Marca</label>  
                      <select name="id_marca" id="id_marca" class="form-control">
                      <option value="0" >Marca:</option>
         <?php
@@ -183,7 +183,7 @@ include "../conexion.php";
 
   <!-- Grupo: precio -->
   <div class="formulario__grupo" id="grupo__precio">
-				<label for="precio" class="formulario__label">precio</label>
+				<label for="precio" class="formulario__label">Precio</label>
 				<div class="formulario__grupo-input">
                          
                          <input type="number" placeholder="Ingrese el precio del producto" name="precio" id="precio" class="formulario__input" required >
@@ -200,7 +200,7 @@ include "../conexion.php";
       
  
       <div class="form-group">
-                         <label for="serie">Tipo</label>
+                         <label for="serie" class="formulario__label">Tipo</label>
 <select name="id_tipo" id="id_tipo" class="form-control"required>
                      <option value="0" >Tipo:</option>
         <?php
@@ -217,7 +217,7 @@ include "../conexion.php";
       
  
             <div class="form-group">
-                         <label for="serie">Proveedor</label>
+                         <label for="serie" class="formulario__label">Proveedor</label>
 <select name="id_proveedor" id="id_proveedor" class="form-control"required>
                      <option value="0" >Proveedor:</option>
         <?php

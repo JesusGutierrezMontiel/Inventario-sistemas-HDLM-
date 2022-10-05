@@ -3,10 +3,10 @@ session_start();
 require("conexion.php");
 require('fpdf/fpdf.php');
 $fecha = strftime( "%Y-%m-%d %H-%M-%S", time() );
-$insertar = "INSERT into log_prestamo_det (id_prestamodet,cantidad, id_producto, id_usuariorecibe, id_usuarioprestamo, fecha,id_estatus) 
+$insertar = "INSERT into log_prestamo_det (id_prestamo,cantidad, id_producto, id_usuariorecibe, id_usuarioprestamo, fecha,id_estatus) 
 select null,cantidad, id_producto,null,id_usuario, fh_prestamo,1
 from detalle_temporal_pres";
-$insertar2 = $conexion-> query ("INSERT INTO `log_prestamo_cab`(`id_prestamocab`, `fh_prestamo`, `fh_entrega`, `costo_completo`, `id_cliente`, `id_salon`,`id_estatus`) 
+$insertar2 = $conexion-> query ("INSERT INTO `log_prestamo_cab`(`id_prestamo`, `fh_prestamo`, `fh_entrega`, `costo_completo`, `id_cliente`, `id_salon`,`id_estatus`) 
 SELECT `id_detalle_temp`,`fh_prestamo`,null,`cantidad`,`id_cliente`,`id_salon`,1
 FROM detalle_temporal_pres")or die( mysqli_error($conexion));
 $con = $conexion -> query ("SELECT p.descripcionproducto, p.precio, d.cantidad from cat_producto p join detalle_temporal_pres d ON (p.id_producto = d.id_producto) ORDER By d.id_detalle_temp") or die( mysqli_error($conexion));
