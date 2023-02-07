@@ -1,6 +1,11 @@
 <?php
+session_start();
+if (empty($_SESSION['active'])) {
+    header('location: ../');
+}
 require("../conexion.php");
 $id_user = $_SESSION['idUser'];
+
 
 if (!empty($_GET['id'])|| !empty($_GET['id_est'])) {
     $id = $_GET['id'];

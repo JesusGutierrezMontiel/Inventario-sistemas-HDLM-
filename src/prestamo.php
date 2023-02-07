@@ -9,21 +9,7 @@ require("../conexion.php");
 <script type="text/javascript" src="js/functions.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 <script type="text/javascript">
-$(function() {
-            $("#curso").autocomplete({
-                source: "autoincrementar.php",
-                minLength: 2,
-                select: function(event, ui) {
-					event.preventDefault();
-					$('#curso').val(ui.item.nombre);
-					$('#idn').val(ui.item.idn);
-					$('#Nombre').val(ui.item.Nombre);
-					$('#ApellidoP').val(ui.item.ApellidoP);
-                    $('#ApellidoM').val(ui.item.ApellidoM);
-					$("#curso").focus();
-			     }
-            });
-		});
+
 </script>
 <div class="row">
     <div class="col-lg-12">
@@ -104,8 +90,8 @@ $(function() {
                         </div>
                     </div>
             </div>
-                     <div class="modal-body">
-			 <table border="1px" cellpadding="5px" width="100%">
+                     <div class="modal-body" >
+			 <table border="1px" cellpadding="5px" width="100%" class="table table-dark table-striped">
 			<thead class="productsHeader">
 				<tr>
 					<th colspan="6">LISTA DE PRODUCTOS</th>

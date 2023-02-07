@@ -74,7 +74,6 @@ if (!empty($_POST)) {
                     }
             ?>
                     <tr>
-
                         <td><?php echo $data['id_usuario']; ?></td>
                         <td><?php echo $data['nombre'];?> &nbsp;  <?php echo $data['apellidoP']; ?></td>
                         <td><?php echo $data['correo']; ?></td>
@@ -82,10 +81,9 @@ if (!empty($_POST)) {
                         <td><?php echo $estado; ?></td>
                         <td>
                             <?php if ($data['estatus'] == 1) { ?>
-                                
-                                <a href="editar_usuario.php?id=<?php echo $data['id_usuario']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
-                                <form action="eliminar_usuario.php?id=<?php echo $data['id_usuario']; ?>" method="post" class="confirmar d-inline">
-                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                          <a href="editar_usuario.php?id=<?php echo $data['id_usuario']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
+                          <form action="eliminar_usuario.php?id=<?php echo $data['id_usuario']; ?>" method="post" class="confirmar d-inline">
+                          <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
                                 </form>
                             <?php } ?>
                         </td>

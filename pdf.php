@@ -3,11 +3,11 @@ session_start();
 require("conexion.php");
 require('fpdf/fpdf.php');
 $fecha = strftime( "%Y-%m-%d %H-%M-%S", time() );
-$insertar = "INSERT into log_prestamo_det (id_prestamo,cantidad, id_producto, id_usuariorecibe, id_usuarioprestamo, fecha,id_estatus) 
-select null,cantidad, id_producto,null,id_usuario, fh_prestamo,1
+$insertar = "INSERT into log_prestamo_det (id_prestamo, linea, fh_prestamo, id_producto, cantidad, id_cliente, id_usuario_prestamo, fh_actualiza, id_tipo_actualiza, id_usuario_actualiza, id_estatus_det) 
+select 1,1,fh_prestamo,id_producto,cantidad,id_cliente, id_usuario,null,null,null,1
 from detalle_temporal_pres";
-$insertar2 = $conexion-> query ("INSERT INTO `log_prestamo_cab`(`id_prestamo`, `fh_prestamo`, `fh_entrega`, `costo_completo`, `id_cliente`, `id_salon`,`id_estatus`) 
-SELECT `id_detalle_temp`,`fh_prestamo`,null,`cantidad`,`id_cliente`,`id_salon`,1
+$insertar2 = $conexion-> query ("INSERT INTO `log_prestamo_cab`(`id_prestamo`, `fh_prestamo`, `fh_cierre`, `costo_total`, `id_salon`,`id_estatus`) 
+SELECT 1,`fh_prestamo`,null,cantidad,`id_salon`,1
 FROM detalle_temporal_pres")or die( mysqli_error($conexion));
 $con = $conexion -> query ("SELECT p.descripcionproducto, p.precio, d.cantidad from cat_producto p join detalle_temporal_pres d ON (p.id_producto = d.id_producto) ORDER By d.id_detalle_temp") or die( mysqli_error($conexion));
 $nombre = $conexion -> query ("SELECT id_usuario from detalle_temporal_pres") or die( mysqli_error($conexion));
@@ -26,7 +26,7 @@ function Header()
     // Movernos a la derecha
     $this->Cell(80);
     // Título
-	$this->Cell(60,10,'Hacienda D Los Morales',0,1,'C');
+	$this->Cell(60,10,'Hacienda De Los Morales',0,1,'C');
 	$this->Cell(80);
     $this->Cell(60,10,'Solicitud de prestamo',0,1,'C');
     // Salto de línea

@@ -1,6 +1,4 @@
-
-	 <?php include_once "includes/header.php"; ?>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+<?php include_once "includes/header.php"; ?>
     <h4 class="text-center">Consultas</h4>
 	
 	<label>Fecha </label>

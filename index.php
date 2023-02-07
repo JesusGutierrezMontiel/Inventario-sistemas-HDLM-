@@ -37,7 +37,6 @@ if (!empty($_SESSION['active'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -48,7 +47,6 @@ if (!empty($_SESSION['active'])) {
     <link href="assets/css/Style.css" rel="stylesheet" />
     <script src="assets/js/all.min.js" crossorigin="anonymous"></script>
 </head>
-
 <body class="bg-FONDO">
             <main>
                 <div class="container">
@@ -62,17 +60,15 @@ if (!empty($_SESSION['active'])) {
                                 <div class="card-body">
                                     <form action="" method="POST">
                                         <div class="form-group">
-                                            <label class="small mb-1" for="usuario"><i class="fas fa-user"></i> Usuario</label>
-                                            <input class="form-control py-4" id="usuario" name="usuario" type="text" placeholder="Ingrese usuario" required />
+                                 <label class="small mb-1" for="usuario"><i class="fas fa-user"></i> Usuario</label>
+                                 <input class="form-control py-4" id="usuario" name="usuario" type="text" placeholder="Ingrese usuario" required />
                                         </div>
                                         <div class="form-group">
-                                            <label class="small mb-1" for="password"><i class="fas fa-key"></i> Contraseña</label>
-                                            <input class="form-control py-4" id="password" name="contrasena" type="password" placeholder="Ingrese Contraseña" required />
+                                 <label class="small mb-1" for="password"><i class="fas fa-key"></i> Contraseña</label>
+                     <input class="form-control py-4" id="password" name="contrasena" type="password" placeholder="Ingrese Contraseña" required />
                                         </div>
                                         <div class="alert alert-danger text-center d-none" id="alerta" role="alert">
-                                        
                                         </div>
-                                        
                                         <?php echo isset($alert) ? $alert : ''; ?>
                                         <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <button class="btn btn-primary" type="submit">Iniciar Sesion</button>
@@ -86,7 +82,6 @@ if (!empty($_SESSION['active'])) {
             </main>
         </div>
         <BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
-
         <div id="layoutAuthentication_footer">
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
@@ -106,5 +101,4 @@ if (!empty($_SESSION['active'])) {
     <script src="assets/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="assets/js/scripts.js"></script>
 </body>
-
 </html>

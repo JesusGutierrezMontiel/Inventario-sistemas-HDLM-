@@ -20,7 +20,7 @@ if (!empty($_POST)) {
         $sql_update = mysqli_query($conexion, "UPDATE cat_usuario SET usuario = UPPER('$usuario'), nombre = UPPER('$nombre'), apellidoP = UPPER('$apellidoP'), apellidoM = UPPER('$apellidoM'), telefono = '$telefono', correo = '$correo', contrasena = '$contrasena',  id_perfil = '$id_perfil' WHERE id_usuario = $id_usuario");
         
         if ($sql_update) {
-            $alert = '<div class="alert alert-success" role="alert">Usuario Actualizado</div>';
+            $alert = '<div class="alert alert-success" role="alert">Usuario Actualizado Corrrectamente</div>';
         } else {
             $alert = '<div class="alert alert-danger" role="alert">Error al Actualizar usuario</div>'; 
         }

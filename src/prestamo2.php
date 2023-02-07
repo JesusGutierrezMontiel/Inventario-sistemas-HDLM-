@@ -8,24 +8,7 @@ require("../conexion.php");
 <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 <script type="text/javascript" src="js/functions.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
-<script type="text/javascript">
-$(function() {
-            $("#curso").autocomplete({
-                source: "autoincrementar.php",
-                minLength: 2,
-                select: function(event, ui) {
-					event.preventDefault();
-					$('#curso').val(ui.item.nombre);
-					$('#idn').val(ui.item.idn);
-					$('#Nombre').val(ui.item.Nombre);
-					$('#ApellidoP').val(ui.item.ApellidoP);
-                    $('#ApellidoM').val(ui.item.ApellidoM);
 
-					$("#curso").focus();
-			     }
-            });
-		});
-</script>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -104,10 +87,10 @@ $(function() {
                     </div>
             </div>
                      <div class="modal-body">
-			 <table border="1px" cellpadding="5px" width="100%">
-			<thead class="productsHeader">
+			 <table border="1px" cellpadding="5px" width="100%" class="table table-dark table-striped">
+			<thead >
 				<tr>
-					<th colspan="6">LISTA DE PRODUCTOS</th>
+					<th colspan="6"><CENTER>LISTA DE PRODUCTOS</CENTER></th>
 				</tr>
 				<tr>
 					<th>Producto</th>
@@ -122,14 +105,15 @@ $(function() {
 					     while ($valores = mysqli_fetch_array($query)) {
 						 ?>
 				<tr>
-					     <th width="50" height="30"><?php echo $valores['descripcionproducto'];?></th>
+					     <th width="50" height="30" ><?php echo $valores['descripcionproducto'];?></th>
 						 <th width="50" height="30"><?php echo $valores['precio'];?></th>
 						 <th width="50" height="30"><?php echo $valores['cantidad'];?></th>
 						 <th width="50" height="30"> 
 					     <input type="hidden" name="id_detalle_temp" id="id_detalle_temp" value="<?php echo $valores['id_detalle_temp']; ?>" > 
 						 <input type="hidden" name="id_prod" id="id_prod" value="<?php echo $valores['id_producto']; ?>" >
-						 <button type="submit" value="Eliminar producto" target="_blank">Eliminar producto</button></th>;
-     				</tr>
+						 <CENTER><button type="submit" class="btn btn-outline-danger"  value="Eliminar producto" target="_blank">Eliminar producto</button></th>;
+     				
+						 </CENTER>	</tr>
 				<?php
 					 }
 				?>
@@ -145,7 +129,7 @@ $(function() {
 			<?php include_once "includes/footer.php"; ?>
 	<script>
   function miFunc() {
-	  setInterval("location.reload('prestamo.php')",1000);
+	  setInterval("location.reload('prestamo.php')");
   }
 </script>
 		
