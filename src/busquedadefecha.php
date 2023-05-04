@@ -5,19 +5,19 @@
       $date1 = date("Y-m-d", strtotime($_POST['date1']));
       $date2 = date("Y-m-d", strtotime($_POST['date2']));
       
-      $query=mysqli_query($conexion, "SELECT a.id_prestamo, CONCAT(c.nombre, ' ', c.apellidoP)as nombre_cliente,
+      $query=mysqli_query($conexion, "SELECT a.id_prestamocab, CONCAT(c.nombre, ' ', c.apellidoP)as nombre_cliente,
       d.descripcion,
        (SELECT descripcionproducto from cat_producto where id_producto  = b.id_producto) as Producto,	
        (SELECT id_producto from cat_producto where id_producto  = b.id_producto) ,
-       (SELECT id_prestamo from log_prestamo_det where id_prestamo  = b.id_prestamo),
+       (SELECT id_prestamodet from log_prestamo_det where id_prestamodet  = b.id_prestamodet),
        (SELECT usuario from cat_usuario where id_usuario  = b.id_usuarioprestamo) as Usuario_Presta,
        a.fh_prestamo,a.id_estatus 
-     FROM log_prestamo_cab a,
+      FROM log_prestamo_cab a,
           log_prestamo_det b,
           cat_cliente c, 
           cat_salon d,
           cat_producto e
-     WHERE a.id_prestamo = b.id_prestamo
+      WHERE a.id_prestamocab = b.id_prestamodet 
       AND a.id_cliente = c.id_cliente
       AND a.id_salon = d.id_salon
       AND b.id_producto = e.id_producto
@@ -73,22 +73,22 @@ while($fetch=mysqli_fetch_array($query)){
         </tr>';
       }
     }else{
-$query=mysqli_query($conexion, " SELECT a.id_prestamo, CONCAT(c.nombre, ' ', c.apellidoP)as nombre_cliente,
-      d.descripcion,
-       (SELECT descripcionproducto from cat_producto where id_producto  = b.id_producto) as Producto,	
-       (SELECT id_producto from cat_producto where id_producto  = b.id_producto) ,
-       (SELECT id_prestamo from log_prestamo_det where id_prestamo  = b.id_prestamo),
-       (SELECT usuario from cat_usuario where id_usuario  = b.id_usuarioprestamo) as Usuario_Presta,
-       a.fh_prestamo,a.id_estatus 
-     FROM log_prestamo_cab a,
-          log_prestamo_det b,
-          cat_cliente c, 
-          cat_salon d,
-          cat_producto e
-     WHERE a.id_prestamo = b.id_prestamo 
-      AND a.id_cliente = c.id_cliente
-      AND a.id_salon = d.id_salon
-      AND b.id_producto = e.id_producto ") or die(mysqli_error());
+$query=mysqli_query($conexion, " SELECT a.id_prestamocab, CONCAT(c.nombre, ' ', c.apellidoP)as nombre_cliente,
+d.descripcion,
+ (SELECT descripcionproducto from cat_producto where id_producto  = b.id_producto) as Producto,	
+ (SELECT id_producto from cat_producto where id_producto  = b.id_producto) ,
+ (SELECT id_prestamodet from log_prestamo_det where id_prestamodet  = b.id_prestamodet),
+ (SELECT usuario from cat_usuario where id_usuario  = b.id_usuarioprestamo) as Usuario_Presta,
+ a.fh_prestamo,a.id_estatus 
+FROM log_prestamo_cab a,
+    log_prestamo_det b,
+    cat_cliente c, 
+    cat_salon d,
+    cat_producto e
+WHERE a.id_prestamocab = b.id_prestamodet 
+AND a.id_cliente = c.id_cliente
+AND a.id_salon = d.id_salon
+AND b.id_producto = e.id_producto ") or die(mysqli_error());
  
     $row=mysqli_num_rows($query);
     if($row > 0){ 
